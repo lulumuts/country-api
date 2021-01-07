@@ -2,7 +2,7 @@
 # abort on errors
 set -e
 # build
-yarn run build
+npm run build
 # navigate into the build output directory
 cd dist
 # if you are deploying to a custom domain
@@ -10,5 +10,5 @@ cd dist
 git init
 git add -A
 git commit -m 'deploy'
-git push -f https://github.com/lulumuts/country-api.git main:gh-pages
+git push -f https://github.com/lulumuts/country-api.git master:gh-pages
 cd -
