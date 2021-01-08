@@ -4,7 +4,6 @@
       Countries
       <br />of the World
     </h1>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div class="container">
       <ul v-for="(item, idx) in countries" :key="idx">
         <router-link
@@ -18,19 +17,19 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from "vuex";
 
 export default {
-  name: 'Home',
+  name: "Home",
 
   computed: {
-    ...mapState(['countries'])
+    ...mapState(["countries"])
   },
-  mounted () {
-    this.getAllCountries()
+  mounted() {
+    this.getAllCountries();
   },
   methods: {
-    ...mapActions(['getAllCountries'])
+    ...mapActions(["getAllCountries"])
   }
-}
+};
 </script>
