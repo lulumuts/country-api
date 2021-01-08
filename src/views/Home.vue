@@ -1,21 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <div v-for="(item, idx) in countries" :key="idx">{{ item }}</div>
+    <h1>
+      Countries
+      <br />of the World
+    </h1>
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    <div class="container">
+      <ul v-for="(item, idx) in countries" :key="idx">
+        <router-link
+          :to="{path:'/details', query: {name: item.name, capital: item.capital, region: item.region, population: item.population, demonym: item.demonym, currencies: item.currencies, languages:item.languages  }}"
+        >
+          <h2>{{item.name}}</h2>
+        </router-link>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
-  },
+
   computed: {
     ...mapState(['countries'])
   },
